@@ -13,10 +13,14 @@ Hugging Face MCP ile, sırayla — sadece bu üçü:
 2. `hf_fs cat hf://datasets/Cnass/claude-memory/projects/claude-memory/PROJECT.md`
 3. `hf_fs cat hf://datasets/Cnass/claude-memory/projects/claude-memory/STATE.md`
 
-## 2. Ortamı elle keşfetme
+## 2. Ortamı elle keşfetme — bellek okunmadan `bash` çalıştırma
 
 Hangi araçların kurulu olduğu, neyin çalışıp neyin çalışmadığı **zaten test edildi** ve
-`PROJECT.md` → Tuzaklar bölümüne yazıldı. Ölçüldü: elle keşif ~45k token, belleği okumak ~2k.
+`PROJECT.md` → Tuzaklar bölümüne yazıldı: JDK, Gradle, KVM, Playwright, sandbox limitleri.
+`java -version` / `which ...` / `ls /dev` gibi yoklamalara gerek yok — cevap dosyada.
+
+Ölçüldü: sadece elle keşif 46.8k token · bellek **+** elle keşif 55.3k · sadece bellek ~2k.
+Belleği okuyup yine de elle yoklamak en pahalı seçenek.
 
 Bellekteki bilgi eksikse ya da gözlemlediğinle çelişiyorsa — o zaman test et, sonra
 **sonucu geri yaz**. Bellek ancak güncel tutulursa işe yarar.
